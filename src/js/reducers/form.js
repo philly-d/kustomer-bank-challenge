@@ -11,6 +11,8 @@ export const initialState = {
     [AMOUNT_FIELD]: '',
 }
 
+// Form reducer manages the input fields for the
+// transaction form (amount and transaction type).
 export default function form (state=initialState, action) {
     switch (action.type) {
         case SET_FORM_FIELD:

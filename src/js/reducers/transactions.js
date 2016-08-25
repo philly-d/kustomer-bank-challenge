@@ -7,6 +7,8 @@ import {
 } from '../constants/transactionTypes';
 import { saveTransaction } from '../services/api';
 
+// User initially gets $500 in their account from
+// a prior deposit.
 const initialDeposit = saveTransaction({
     type: DEPOSIT,
     value: 500,
@@ -14,6 +16,8 @@ const initialDeposit = saveTransaction({
 })
 export const initialState = [initialDeposit];
 
+// Transactions reducer prepends the transaction list when
+// new transactions are successfully submitted.
 export default function transactions(state=initialState, action) {
     switch (action.type) {
         case TRANSACTION_SUCCESS:
@@ -26,28 +30,24 @@ export default function transactions(state=initialState, action) {
     }
 }
 
-/**
- * @param {string} amount - Transaction amount string
- * @return {boolean} Whether value is an invalid $ amount
- */
+// Is a given amount string a valid dollar amount?
 export function isInvalidAmount(amount) {
     const num = +amount;
     return isNaN(num) || num <= 0;
 };
+// Normalize amount to dollar value.
 export function normalizeAmount(amount) {
     const num = Math.abs(+amount);
     return num.toFixed(2);
 };
 
 
-/**
- * @param {object} param - Transaction with type and value properties
- * @return {number} Adjusted value (positive or negative) based on type
- */
+// Adjusts transaction value (positive if deposit, negative if withdrawal)
 export function getAdjustedValue({ value, type }) {
     const mult = type === WITHDRAWAL ? -1 : 1;
     return mult * Math.abs(value);
 };
+// Computes balance by reducing all previous transactions
 export const reduceBalance = transactions => {
     return transactions.reduce((bal, t) => bal + getAdjustedValue(t), 0);
 }

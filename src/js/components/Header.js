@@ -1,8 +1,8 @@
 import React from 'react';
 import { normalizeAmount } from '../reducers/transactions';
 
+// App header (shows user balance)
 const Header = ({ balance }) => {
-
     return (
         <div className="content-block">
             <div classNamze="column">
@@ -18,7 +18,6 @@ const Header = ({ balance }) => {
             </div>
         </div>
     )
-
 }
 
 export default Header;

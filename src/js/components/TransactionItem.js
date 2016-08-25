@@ -14,9 +14,9 @@ const displayInfoByType = {
     }
 };
 
+// Renders a transaction item with date/type/amount
 const TransactionItem = (transaction) => {
     const displayInfo = displayInfoByType[transaction.type];
-    console.log('rendering', transaction, transaction.id);
     return (
         <tr key={transaction.id}>
             <td>{ moment(transaction.timestamp).format('l') }</td>

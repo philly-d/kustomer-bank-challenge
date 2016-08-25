@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Show a success or error message after transaction has been submitted
 const ProgressMessage = ({ progress, hideProgressMessage }) => {
     const { error, success } = progress;
     const type = error ? 'error' : 'success';

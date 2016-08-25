@@ -11,6 +11,8 @@ export const initialState = {
     success: false
 }
 
+// Progress reducer manages the UI state for the progress of
+// a pending transaction (and its success or failure).
 export default function progress(state=initialState, action) {
     switch (action.type) {
         case TRANSACTION_SUCCESS:
