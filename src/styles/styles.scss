@@ -1,4 +1,69 @@
-body {
-  background: #f1f1f1;
-  padding-top: 30px;
+// Overrides for Semantic UI + extra styles
+
+$red: #DB2828;
+$blue: #2185D0;
+
+* {
+    box-sizing: border-box;
+}
+
+// Center app
+#app {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+// Show positive or negative dollar
+// amounts before transactions in the
+// ledger list view.
+.amount {
+    &.withdrawal {
+        color: $red;
+        &:before {
+            content: '-$'
+        }
+    }
+    &.deposit {
+        color: $blue;
+        &:before {
+            content: '$'
+        }
+    }
+}
+
+.content-block {
+    text-align: center;
+    margin: 1em 0;
+}
+
+.transaction-form {
+    display: block;
+    margin: 0 auto;
+    width: 320px;
+
+    .ui.input.error input {
+        border-color: #E0B4B4 !important;
+        background-color: #FFF6F6 !important;
+        color: #9F3A38 !important;
+        box-shadow: none !important;
+    }
+
+    .ui.input input {
+        width: 150px !important;
+    }
+
+    .ui.dropdown {
+        width: 110px !important;
+    }
+}
+
+.progress-message-wrapper {
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+
+    .ui.message.progress-message {
+        width: 100%;
+        margin: 0;
+    }
 }

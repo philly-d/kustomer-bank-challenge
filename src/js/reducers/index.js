@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import friendList from './friendList';
+import progress from './progress';
+import transactions from './transactions';
+import form from './form';
 
 const rootReducer = combineReducers({
-  friendList
+    progress,
+    transactions,
+    form
 });
 
 export default rootReducer;

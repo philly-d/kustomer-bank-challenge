@@ -1,15 +1,14 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import Transactions from '../containers/Transactions';
+import Header from '../containers/Header';
+import TransactionForm from '../containers/TransactionForm';
 
-export default class App extends Component {
-  static propTypes = {
-    children: PropTypes.element.isRequired
-  };
+const App = (props) => {
 
-  render() {
-    return (
-      <div className="page-container">
-        {this.props.children}
-      </div>
-    );
-  }
+    return (<div>
+        <Header />
+        <TransactionForm />
+        <Transactions />
+    </div>);
 }
+export default App;
